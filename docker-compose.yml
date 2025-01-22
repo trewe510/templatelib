@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+    php-nginx:
+        build:
+            context: local/
+            args:
+                USER: ${UID:-1000}
+                GROUP: ${GID:-1000}
+                UGNAME: ${USER:-docker}
+        container_name: lib-php-template-php
+        environment:
+            - COMPOSER_AUTH=${COMPOSER_AUTH}
+        volumes:
+            - ~/.ssh/McAfee.pem:/etc/ssl/certs/McAfee.pem
+            - .:/var/www/app
+            - ./xdebug.ini:/etc/php/8.1/fpm/conf.d/26-xdebug.ini
+            - ./xdebug.ini:/etc/php/8.1/cli/conf.d/26-xdebug.ini
