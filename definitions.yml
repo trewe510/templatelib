@@ -1,4 +1,4 @@
-description: "Buscador de UFs"
+description: "Buscador de CNPJs"
 labels:
   squad: "devops"
   resource_type: "library"
