@@ -1,18 +1,39 @@
 <?php
 
-require __DIR__. '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use src\WebService\Speedio;
+use src\Client\Speedio;
 
-$obSpeedio = new Speedio;
+class CNPJConsultor
+{
+    private $speedio;
 
+    public function __construct()
+    {
+        $this->speedio = new Speedio();
+    }
 
-$resultado = $obSpeedio->consultarCNPJ('');
+    public function consultarCNPJ($cnpj)
+    {
+        $resultado = $this->speedio->consultarCNPJ($cnpj);
 
-if(empty($resultado)) {
-    die('Problemas ao consultar CNPJ');
+        if (empty($resultado)) {
+            die('Problemas ao consultar CNPJ');
+        }
+
+        if (isset($resultado['error'])) {
+            die($resultado['error']);
+        }
+
+        return $resultado;
+    }
 }
 
-if(isset($resultado['error'])){
-    die($resultado['error']);
+// Exemplo de uso
+$consultor = new CNPJConsultor();
+$resultado = $consultor->consultarCNPJ('');
+
+if ($resultado) {
+    // Processar o resultado
+    print_r($resultado);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\WebService;
+namespace src\Client;
 
 class Speedio 
 {
