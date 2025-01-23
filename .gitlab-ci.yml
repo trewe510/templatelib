@@ -1,4 +1,4 @@
 include:
     - project: 'mova-general/apis/cap/libs/exemplo1-lib'
-      ref: homolog
+      ref: main
       file: 'libraries/default-php-82-lib-ci.yml'
