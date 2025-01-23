@@ -1,6 +1,6 @@
 include:
     - project: 'mova-general/infra/mova-devops'
-      ref: main
+      ref: homolog
       file: 'libraries/default-php-82-lib-ci.yml'
 
 
